@@ -1,0 +1,173 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NRSC/ISRO Beamer Presentation Showcase
+% Version: 12.1
+% Date: August 26, 2025
+%Author : Carbform (carbform.github.io)
+% Description: A showcase and template for the NRSCISRO.cls class.
+%  This file demonstrates all standard features.
+%
+% Compiler: pdfLaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --------------------------------------------------------------------
+% Choose your font theme: 'sans' (modern, default) or 'serif' (classic)
+% --------------------------------------------------------------------
+\documentclass[serif]{NRSCISRO}
+
+% --- BIBLATEX SETUP FOR CITATIONS (Optional) ---
+% For this to work, you need a 'bibfile.bib' in your folder.
+\usepackage[backend=biber, style=numeric]{biblatex}
+\addbibresource{bibfile.bib}
+
+% ---------------------------------------------
+% --- Presentation Information ---
+\title{ISRO/NRSC Beamer Theme Showcase}
+\subtitle{A Full-Featured Presentation Template}
+\author{Carbform}
+\department{Sci/Er-SC, Water Resources Group}
+\institute{National Remote Sensing Centre, ISRO}
+\email{xxxxxx@nrsc.gov.in}
+\date{\today}
+
+% --- Set the path to YOUR footer logo ---
+% This command is required for the small logo to appear in the footer.
+\setfooterlogo{images/nrsc_small.png}
+
+\begin{document}
+
+% --- Title Page ---
+% The [plain] option removes the header and footer for a clean look.
+% --- MODIFIED FRAME BELOW ---
+\begin{frame}[plain]
+    % Added \centering to align all content, including the date
+    \centering
+    % Added the figure environment for the main logo
+    \begin{figure}
+        \includegraphics[height=2.15cm]{images/nrsc_small.png}
+    \end{figure}
+    \vfill 
+    \maketitle
+\end{frame}
+% --- END OF MODIFICATION ---
+
+
+% --- Outline ---
+\begin{frame}{Outline}
+    \begin{multicols}{2}
+        \tableofcontents
+    \end{multicols}
+\end{frame}
+
+% ===================================================================
+\section{Introduction}
+% ===================================================================
+
+\begin{frame}{About This Theme}
+    \begin{itemize}
+        \item This theme provides a robust and standardized look for all NRSC/ISRO presentations.
+        \item You can choose a font theme using class options:
+        \begin{itemize}
+            \item `documentclass[sans]{NRSCISRO}` for a modern, clean look.
+            \item `documentclass[serif]{NRSCISRO}` for a classic, academic appearance.
+        \end{itemize}
+        \item The footer logo is set in the preamble with setfooterlogo command.
+    \end{itemize}
+\end{frame}
+
+% ===================================================================
+\section{Content Elements}
+% ===================================================================
+
+\begin{frame}{Standard Block Environments}
+    \begin{block}{Standard Block}
+        This is the default block environment, ideal for general content.
+    \end{block}
+    
+    \begin{alertblock}{Alert Block}
+        This block is for critical warnings and important information.
+    \end{alertblock}
+
+    \begin{exampleblock}{Example Block}
+        This block is used for examples, code, or positive outcomes.
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Custom Box Commands}
+    These commands are for simple, framed text without a title bar.
+    
+    \infobox{This is an info box. Good for neutral or supplementary information.}
+    \successbox{This is a success box. Ideal for positive results or key takeaways.}
+    \alertbox{This is an alert box. Use it for critical warnings or important notes.}
+\end{frame}
+
+\begin{frame}{Figures and Columns}
+    \begin{columns}[T] % The [T] option aligns the tops of the columns
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \includegraphics[width=\textwidth]{images/black.png}
+                \caption{A figure in the left column.}
+                \source{ISRO Image Gallery}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \textbf{Multi-column layouts} are useful for placing text next to figures.
+            \begin{itemize}
+                \item This is the right column.
+                \item It can contain text or lists.
+                \item The `source{}` command adds a formatted source line below a figure.
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Citations}
+    You can cite sources in your text, which will be numbered automatically \cite{Einstein1926}.
+    
+    \bigskip % A little space
+
+    The full, formatted reference list will appear on the "References" slide at the end of the presentation.
+\end{frame}
+
+% ===================================================================
+\section{Advanced Features}
+% ===================================================================
+
+\begin{frame}[fragile]{Code Listings}
+    The `fragile` option is required for frames containing code listings.
+    \begin{exampleblock}{Python Code Example}
+\begin{lstlisting}[language=Python]
+def greet(name):
+    # This is a comment
+    print(f"Hello, {name}!")
+
+# Call the function
+greet("ISRO")
+\end{lstlisting}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Full-Frame Background Image}
+    The `framebackground{}` command sets an image for a single slide.
+    \framebackground[0.1]{images/color.png}
+    \begin{alertblock}{Content on Top}
+        Any content on the slide will appear on top of the background image. You can control the image opacity, e.g., `framebackground[0.1]{...}`.
+    \end{alertblock}
+\end{frame}
+
+% ===================================================================
+% --- Concluding Slides ---
+% ===================================================================
+
+\begin{frame}[allowframebreaks]{References}
+    \printbibliography
+\end{frame}
+
+\begin{frame}[plain] 
+    \vfill
+    \centering
+    \begin{beamercolorbox}[center, rounded=true, shadow=false]{block body}
+        \Huge{\textbf{\textcolor{ISROBlue}{Thank You!}}}
+    \end{beamercolorbox}
+    \vfill
+\end{frame}
+
+\end{document}
